@@ -1,0 +1,26 @@
+{
+  "name": "nexus-api",
+  "version": "0.1.0",
+  "scripts": {
+    "migrate": "drizzle-kit generate:pg",
+    "dev": "bun run --hot src/index.ts",
+    "start": "bun run src/index.ts --production"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "latest",
+    "@elysiajs/swagger": "^0.5.0",
+    "drizzle-orm": "latest",
+    "elysia": "latest",
+    "envsafe": "latest",
+    "luxon": "^3.3.0",
+    "pg": "latest",
+    "pino": "latest"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.3.0",
+    "@types/pg": "latest",
+    "bun-types": "latest",
+    "drizzle-kit": "latest"
+  },
+  "module": "src/index.ts"
+}

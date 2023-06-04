@@ -1,0 +1,32 @@
+apiVersion: apps/v
+kind: Deployment
+metadata:
+  name: { { template "fullname" . } }
+spec:
+  replicas: { { .Values.api.replicas } }
+  selector:
+    matchLabels:
+      app: { { template "fullname" . } }
+  template:
+    metadata:
+      labels:
+        app: { { template "fullname" . } }
+    spec:
+      imagePullSecrets:
+        - name: docker-sec
+      containers:
+        - name: { { .Chart.Name } }
+          image: { { .Values.api.image } }
+          ports:
+            - containerPort: { { .Values.api.port } }
+          env:
+            - name: PORT
+              value: { { .Values.api.port } }
+            - name: DB_USER
+              value: { { .Values.database.user } }
+            - name: DB_PASSWORD
+              value: { { .Values.database.password } }
+            - name: DB_HOST
+              value: { { .Values.database.host } }
+            - name: DB_NAME
+              value: { { .Values.database.name } }

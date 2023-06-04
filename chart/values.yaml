@@ -1,0 +1,20 @@
+api:
+  image: aimenhamed/test:latest
+  imagePullSecrets: []
+  replicas: 3
+  port: 8080
+
+ui:
+  image: aimenhamed/test:latest
+  imagePullSecrets: []
+  replicas: 1
+  port: 3000
+
+database:
+  image:
+  enabled: true
+  host: localhost
+  port: 5432
+  username: admin
+  password: password
+
